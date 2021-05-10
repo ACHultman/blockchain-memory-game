@@ -4,13 +4,13 @@ A simple memory game with collectible NFT rewards. Created with Dapp University'
 
 ## Screenshots
 
-![Game](docs/game.jpg "Game")
+![Game](docs/game.jpg "Game")  
 Overall game, featuring a memory grid and a row of collected NFTs below.
 
-![Game](docs/match.jpg "Game")
+![Game](docs/match.jpg "Game")  
 An example of a match.
 
-![Game](docs/nft.png "Game")
+![Game](docs/nft.png "Game")  
 The NFT award being sent to MetaMask account.
 
 ## Usage
