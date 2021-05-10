@@ -132,6 +132,21 @@ class App extends Component {
     }
   };
 
+  giveToken = async (optionOneId, optionTwoId) => {
+    this.state.token.methods
+      .mint(
+        this.state.account,
+        window.location.origin + CARD_ARRAY[optionOneId].img.toString()
+      )
+      .send({ from: this.state.account })
+      .on("transactionHash", (hash) => {
+        this.setState({
+          cardsWon: [...this.state.cardsWon, optionOneId, optionTwoId],
+          tokenURIs: [...this.state.tokenURIs, CARD_ARRAY[optionOneId].img],
+        });
+      });
+  };
+
   checkForMatch = async () => {
     const optionOneId = this.state.cardsChosenId[0];
     const optionTwoId = this.state.cardsChosenId[1];
@@ -139,10 +154,7 @@ class App extends Component {
       alert("You clicked on the same image...!");
     } else if (this.state.cardsChosen[0] === this.state.cardsChosen[1]) {
       alert("You found the match!");
-      this.setState({
-        cardsWon: [...this.state.cardsWon, optionOneId, optionTwoId],
-        tokenURIs: [...this.state.tokenURIs, CARD_ARRAY[optionOneId].img],
-      });
+      this.giveToken(optionOneId, optionTwoId);
     } else {
       alert("Sory, try again!");
     }
