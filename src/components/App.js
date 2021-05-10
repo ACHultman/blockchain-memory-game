@@ -212,7 +212,7 @@ class App extends Component {
           <div className="row">
             <main role="main" className="col-lg-12 d-flex text-center">
               <div className="content mr-auto ml-auto">
-                <h1 className="d-4">Edit this file in App.js!</h1>
+                <h1 className="d-4">Start Matching!</h1>
 
                 <div className="grid mb-4">
                   {this.state.cardArray.map((card, key) => (
@@ -232,9 +232,16 @@ class App extends Component {
                 </div>
 
                 <div>
-                  {/* Code goes here... */}
+                  <h5>
+                    Tokens Collected:{" "}
+                    <span id="result"> {this.state.tokenURIs.length}</span>
+                  </h5>
 
-                  <div className="grid mb-4">{/* Code goes here... */}</div>
+                  <div className="grid mb-4">
+                    {this.state.tokenURIs.map((tokenURI, key) => (
+                      <img alt={key} key={key} src={tokenURI} />
+                    ))}
+                  </div>
                 </div>
               </div>
             </main>
